@@ -67,7 +67,7 @@
     | Gnd       | brown       | Gnd      |
     | Vcc       | red         | Vcc      |
 * ToDo
-*** DONE Add support for modified mouse buttons
+*** Done Add support for modified mouse buttons
     CLOSED: [2012-04-19 Thu 22:48]
 *** DONE Add support for toggled mouse buttons for drag
     CLOSED: [2012-04-19 Thu 22:48]
