@@ -1,29 +1,20 @@
-# Object files
+# Compiled Object files
 *.o
-*.ko
-*.obj
+
+# Dependency files
+*.d
+
+# Autosaves
+*~
+
+# Ignore the entire build directory
+build
+
+# Binary and hex upload files
 *.elf
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
 *.hex
+*.lst
+*.map
+
+# Utilities
+convert
