@@ -1,0 +1,44 @@
+N _---    <Escape>
+N <---    <Delete>
+N -_--    <RightArrow>
+N ->--    <UpArrow>
+N -<--    <LeftArrow>
+N --_-    <Home>
+N -->-    <DownArrow>
+N --<-    <PageUp>
+N ---_    <Esc>
+N --->    <Insert>
+N ---<    <PageDown
+N <<--    <F1>
+N <>--    <F2>
+N <_--    <F3>
+N <-<-    <F4>
+N <->-    <F5>
+N <-_-    <F6>
+N <--<    <F7>
+N <-->    <F8>
+N <--_    <F9>
+N <<<-    <F10>
+N <>>-    <F11>
+N <__-    <F12>
+N -->>    <CapsLock>
+N --<<    <NumLock>
+N --__    <ScrollLock>
+NS <<<<    <Toggle Mass Storage>
+NA ____    <Mouse Mode Disable>
+NA >>>>    <Mouse Mode Enable>
+NS _>--    <Enter Upgrade Mode>
+
+# Mouse Mapping
+- _---    Right Single Click
+- >---    Middle Single Click
+- <---    Left Single Click
+- -_--    Right Double Click
+- ->--    Middle Double Click
+- -<--    Left Double Click
+- --_-    Shift + Left Single Click
+- -->-    Ctrl + Left Single Click
+- --<-    Alt + Left Single Click
+- ---_    Shift + Left Double Cli...
+- --->    Right Button Toggle
+- ---<    Left Button Toggle

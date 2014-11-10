@@ -1,0 +1,252 @@
+# The Deca-Keyer Keymap
+#
+# Based on the TabSpace Keymap by Brandon Craig Rhodes
+# Brandon Craig Rhodes http://www.rhodesmill.org/brandon
+
+# Key nomenclature mapping from TabSpace -> Deca-Keyer
+# l = _
+# m = >
+# r = <
+
+# The three top buttons map to the most frequently used keys.  Note
+# that in sane command line environments (those that support
+# completions), tab is used nearly as much as backspace and both are
+# often used many times per line (so we make them more convenient than
+# a carriage return).
+
+- <---    KEY_BACKSPACE
+- >---    KEY_SPACE
+- _---    KEY_TAB
+
+# Next are the nine most common letters, which can each be produced
+# with a single keypress.  They are carefully arranged so that the
+# most common combinations of them can be pressed simultaneously to
+# produce double letters.  In each case the double letter combinations
+# output their two constituent letters in the most common order
+# (though with some such as er-re it was a close call).  The doubles
+# can be expected to account for roughly one-third of the adjacent
+# letter pairs in normal English text!
+
+- ->--    "e"
+- -->-    "t"
+- --->    "h"
+- -<--    "i"
+- --<-    "n"
+- ---<    "a"
+- -_--    "o"
+- --_-    "r"
+- ---_    "s"
+
+- -<-<    "ai"
+- -<->    "hi"
+- -<-_    "is"
+- -<<-    "in"
+- -<>-    "it"
+- -<_-    "ri"
+- ->-<    "ea"
+- ->->    "he"
+- ->-_    "es"
+- -><-    "en"
+- ->>-    "te"
+- ->_-    "er"
+- -_-<    "oa"
+- -_->    "ho"
+- -_-_    "so"
+- -_<-    "on"
+- -_>-    "to"
+- -__-    "or"
+- --<<    "an"
+- --<>    "hn"
+- --<_    "ns"
+- --><    "at"
+- -->>    "th"
+- -->_    "st"
+- --_<    "ar"
+- --_>    "hr"
+- --__    "rs"
+
+# We support some three-letter combinations.  As above, note
+# that they are produced simply by pressing all of their letters
+# simulateously.
+
+- ->>>    "the"
+- -<<<    "ain"
+- ->_<    "are"
+- ><<<    "ing"
+- >><<    "and"
+- >_<<    "ong"
+
+# Every other letter is produced by pressing the top middle button
+# (the spacebar) and some combination of the lower keys.  It is
+# expected that during normal typing the index finger will stay on the
+# spacebar.  A few combinations that involve these second-tier letters
+# are also supported.
+
+- >>--    "d"
+- >->-    "l"
+- >-->    "u"
+- ><--    "c"
+- >-<-    "f"
+- >--<    "g"
+- >_--    "m"
+- >-_-    "w"
+- >--_    "y"
+
+- >>>-    "p"
+- >->>    "b"
+- >>->    "v"
+- ><<-    "k"
+- >-<<    "j"
+- >__-    "q"
+- >-__    "x"
+- >>>>    "z"
+
+- >_<-    "of"
+- >><-    "nd"
+- ><->    "ch"
+- >__>    "qu"
+- >-_>    "wh"
+
+# As everyone knows, keypads are supposed to be three by three.
+
+- <>--    "1"
+- <->-    "2"
+- <-->    "3"
+- <<--    "4"
+- <-<-    "5"
+- <--<    "6"
+- <_--    "7"
+- <-_-    "8"
+- <--_    "9"
+- <>>-    "0"
+- __--    "."
+- <__-    "-"
+
+# Below the number keypad we place three tiers of mathematical
+# operators and symbols.  First come the arithmetic operators, which
+# we cascade off of the minus sign.
+
+- <_>-    "+"
+- <_<-    "^"
+- <_-_    "/"
+- <_->    "*"
+- <_-<    "%"
+
+# The middle tier of operators include those usually used for logic
+# operations.
+
+- <><-    "&"
+- <>_-    "|"
+- <>->    "~"
+- <>-<    "^"
+
+# The double key combinations along the bottom two rows
+# produce the comparitive operators.  Note that the greater than and
+# less than symbols, which we also use as angle brackets, are in
+# positions similar to all other brackets (see below).
+
+- <-<<    "<"
+- <->>    ">"
+- <-__    "="
+
+# The last major section involves punctuation.  The period, comma, and
+# enter key are both intended to be very easy to press.  The semicolon
+# is of course produced by pressing period and comma simultaneously.
+# Quotes and brackets are also available here.
+
+- __--    "."
+- ___-    ";"
+- _-_-    ","
+- _-__    ":"
+- _--_    """
+- _-->    "'"
+- _--<    "`"
+- _>--    KEY_ENTER
+- _<--    "-"
+- _<<-    "["
+- _>>-    "]"
+- _-<-    "("
+- _->-    ")"
+- _-<<    "{"
+- _->>    "}"
+
+# Now that we have exhausted the same-row combinations of the lower
+# three keys, we place two more echelons of symbols: one of textual
+# punctuation, and the other of more obscure symbols more often
+# encountered in programming (and computer typesetting).  People who
+# use such keys exceedingly often may have cause to be upset with me.
+
+- __>-    "?"
+- __<-    "!"
+- __-_    "$"
+- __->    "#"
+- __-<    "~"
+- ____    "@"
+- __>>    "&"
+
+- _><-    "/"
+- _>_-    "\"
+- _>->    "_"
+- _>-<    "%"
+
+# The FN modifier has no useful native function under X-windows
+# (unlike the Shift, CTRL, and ALT modifiers), so we use it for useful
+# keystrokes that need to be easy to get to.  Hitting single keys with
+# FUNC give an arrow key rose and other screen navigation sequences.
+# This is also where we put important codes like Escape, Delete, Null,
+# and Linefeed.
+
+#func  r000 = 127            # func + BACKSPACE = delete (ascii rubout)
+#func  m000 = NULL           # func + SPACE = null
+#func  l000 = ESCAPE         # func + TAB = ESCAPE
+#func  lm00 = 10             # func + ENTER = linefeed
+#func  0m00 = 20,"FF52",20   # XK_Up
+#func  00m0 = 20,"FF54",20   # XK_Down
+#func  0r00 = 20,"FF51",20   # XK_Left
+#func  0l00 = 20,"FF53",20   # XK_Right
+#func  00r0 = 20,"FF55",20   # XK_Page_Up
+#func  000r = 20,"FF56",20   # XK_Page_Down
+#func  00l0 = 20,"FF95",20   # XK_Home
+#func  000l = 20,"FF9C",20   # XK_End
+#func  000m = 20,"FF9E",20   # XK_Insert
+
+_ <__-    KEY_ESC
+_ <-__    KEY_CAPS_LOCK
+_ <->>    KEY_RIGHT
+_ <-<<    KEY_LEFT
+_ _->-    KEY_DOWN
+_ _-<-    KEY_UP
+_ _>>-    KEY_PAGE_DOWN
+_ _<<-    KEY_PAGE_UP
+_ __<-    KEY_PRINTSCREEN
+_ __-<    KEY_SCROLL_LOCK
+_ ____    KEY_DELETE
+_ __>>    KEY_INSERT
+_ _>_-    KEY_PAUSE
+_ <<<<    KEY_HOME
+_ >>>>    KEY_END
+
+# Every Emacs user will appreciate these easily accessible sequences,
+# if only they can bring themselves to remember them.
+
+#_ __--    4              # C-d
+#_ >>--    7              # C-g
+#_ -<<-    3              # C-c
+#_ ->>-    24             # C-x
+#_ -__-    24,"u"         # C-x u
+#_ --<<    24,"("         # C-x (
+#_ -->>    24,")"         # C-x )
+#_ --__    24,"e"         # C-x e
+
+# FN + keypad produces function keys.
+
+_ <<--    KEY_F1
+_ <>--    KEY_F2
+_ <_--    KEY_F3
+_ <-<-    KEY_F4
+_ <->-    KEY_F5
+_ <-_-    KEY_F6
+_ <--<    KEY_F7
+_ <-->    KEY_F8
+_ <--_    KEY_F9
+_ <<<-    KEY_F10

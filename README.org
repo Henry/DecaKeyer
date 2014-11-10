@@ -1,0 +1,88 @@
+#+TITLE: *DecaKeyer: Hand-held Chorded Keyboard with 10 Microswitches*
+#+AUTHOR: nil
+#+EMAIL: no-reply
+#+OPTIONS: author:nil email:nil ^:{}
+#+LaTeX_HEADER: \usepackage[parfill]{parskip}
+#+STARTUP: hidestars odd
+
+* Aim
+  The aim of this project is to construct a hand-held chorded keyboard with
+  chords inspired by the Twiddler-2.1 but using two-switches per finger rather
+  than three with the third being emulated by pressing the two simultaneously.
+* Images
+  Here is the current version of the DecaKeyer fabricated in
+  [[http://www.polymorphplastic.co.uk/][Polymorph]] (known as Friendly Plastic
+  in the US)
+  [[https://github.com/Henry/DecaKeyer/raw/master/Images/DecaKeyer.jpg]]
+  and as it looks when worn
+  [[https://github.com/Henry/DecaKeyer/raw/master/Images/DecaKeyerHand.jpg]]
+* Teensy 2 Software
+  The [[https://www.pjrc.com/teensy/][Teensy-2.0]] micro-controller is used in
+  this project.  The installation notes are really for my own reference but they
+  may be useful to others.  I am developing software under OpenSuSE but all
+  these tools are available for other GNU/Linux distributions.
+*** Install AVR tools on OpenSuSE
+    Open /firefox/ and follow instructions on
+    + http://software.opensuse.org/package/cross-avr-gcc
+    + Use the 1-click install of /CrossToolchain:avr/
+    Or add the repository and use =zypper=
+    + sudo zypper addrepo http://download.opensuse.org/repositories/CrossToolchain:/avr/openSUSE_13.1/
+    + =zypper in cross-avr-gcc avr-libc cross-avr-binutils=
+*** CLI Loader (used instead of Teensyduino)
+    Download the latest CLI app for teensy-2
+    + =wget https://www.pjrc.com/teensy/teensy_loader_cli.2.1.zip=
+    + =unzip teensy_loader_cli.2.1.zip=
+    + =cd teensy_loader_cli=
+    + =make=
+    + Install somewhere in your =PATH= /eg/: =cp teensy_loader_cli ~/bin/linux=
+* Teensy Pins
+*** Chorded keys
+    | Finger        | Wire colour | Port pin |
+    |---------------+-------------+----------|
+    | Index tip     | purple      | PB0      |
+    | Index middle  | purple      | PB1      |
+    | Middle tip    | blue        | PB2      |
+    | Middle middle | blue        | PB3      |
+    | Ring tip      | yellow      | PB7      |
+    | Ring middle   | yellow      | PD0      |
+    | Pinky tip     | pink        | PD1      |
+    | Pinky middle  | pink        | PD2      |
+*** Modifier Keys
+    | Finger        | Wire colour | Port pin |
+    |---------------+-------------+----------|
+    | Thumb tip     | grey        | PD6      |
+    | Thumb middle  | grey        | PD7      |
+*** Trackball connections
+    | Trackball | Wire colour | Port pin |
+    |-----------+-------------+----------|
+    | Blue led  | blue        | PF5      |
+    | Red  led  | red         | PF1      |
+    | Green led | green       | PF4      |
+    | White led | white       | PF0      |
+    | Up        | pink        | PF6      |
+    | Down      | grey        | PF7      |
+    | Left      | orange      | PB6      |
+    | Right     | yellow      | PB5      |
+    | Button    | purple      | PB4      |
+    | Gnd       | brown       | Gnd      |
+    | Vcc       | red         | Vcc      |
+* TODO
+*** DONE Add support for modified mouse buttons
+    CLOSED: [2012-04-19 Thu 22:48]
+*** DONE Add support for toggled mouse buttons for drag
+    CLOSED: [2012-04-19 Thu 22:48]
+*** DONE Complete =mouse_chord_map= and add to =convert.C=
+    CLOSED: [2012-04-19 Thu 22:48]
+*** DONE Add support for sticky-modifiers
+    CLOSED: [2012-04-19 Thu 22:48]
+*** DONE Replace rigid strap with elastic or velcro one
+      CLOSED: [2012-04-19 Thu 22:48]
+*** TODO Add time-limit for double-click for sticky-modifiers
+*** TODO Complete support for multi-character chord codes
+    Need to loop over the string to output the codes.
+*** TODO Add num-shift key as an extra thumb key
+    Needed to provide function keys etc. and allow modified versions of these
+    without the need for sticky-modifiers.
+*** TODO Add duplicate chord checking in =convert=
+*** TODO Reorganise chords
+    and use all convenient ones for common letters and symbols
