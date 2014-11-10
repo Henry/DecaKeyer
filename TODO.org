@@ -1,0 +1,20 @@
+* TODO
+*** DONE Add support for modified mouse buttons
+    CLOSED: [2012-04-19 Thu 22:48]
+*** DONE Add support for toggled mouse buttons for drag
+    CLOSED: [2012-04-19 Thu 22:48]
+*** DONE Complete =mouse_chord_map= and add to =convert.C=
+    CLOSED: [2012-04-19 Thu 22:48]
+*** DONE Add support for sticky-modifiers
+    CLOSED: [2012-04-19 Thu 22:48]
+*** DONE Replace rigid strap with elastic or velcro one
+      CLOSED: [2012-04-19 Thu 22:48]
+*** TODO Add time-limit for double-click for sticky-modifiers
+*** TODO Complete support for multi-character chord codes
+    Need to loop over the string to output the codes.
+*** TODO Add num-shift key as an extra thumb key
+    Needed to provide function keys etc. and allow modified versions of these
+    without the need for sticky-modifiers.
+*** TODO Add duplicate chord checking in =convert=
+*** TODO Reorganise chords
+    and use all convenient ones for common letters and symbols
