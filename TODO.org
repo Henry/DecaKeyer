@@ -8,11 +8,13 @@
 *** DONE Add support for sticky-modifiers
     CLOSED: [2012-04-19 Thu 22:48]
 *** DONE Replace rigid strap with elastic or velcro one
-      CLOSED: [2012-04-19 Thu 22:48]
-*** TODO Add time-limit for double-click for sticky-modifiers
+    CLOSED: [2012-04-19 Thu 22:48]
+*** DONE Add time-limit for double-click for sticky-modifiers
+    CLOSED: [2012-04-19 Thu 22:48]
 *** TODO Complete support for multi-character chord codes
     Need to loop over the string to output the codes.
-*** TODO Add num-shift key as an extra thumb key
+*** DONE Add num-shift key as an extra thumb key
+    CLOSED: [2012-04-19 Thu 22:48]
     Needed to provide function keys etc. and allow modified versions of these
     without the need for sticky-modifiers.
 *** TODO Add duplicate chord checking in =convert=

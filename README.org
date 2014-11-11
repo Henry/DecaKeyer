@@ -18,10 +18,10 @@
   back-switch.  When the difficult chords are eliminated there are too few to be
   able to create an equivalent of a full keyboard and another mode/layer is
   really needed.  Overall this has been an interesting project but the resulting
-  keyboard is not as easy to use as the Twiddler-2.1, even with its harsh
-  switches, and maybe a better approach would be to improve the Twiddler concept
-  with lower-force, longer travel switches with better tactile feedback and
-  flatter keycaps so that they are not so hard on the finger tips.
+  keyboard is not as easy to use as the Twiddler-2.1, even with its slightly
+  harsh switches, and maybe a better approach would be to improve the Twiddler
+  concept with lower-force, longer travel switches with better tactile feedback
+  and flatter keycaps so that they are not so hard on the finger tips.
 * Images
   Here is the current version of the DecaKeyer fabricated in
   [[http://www.polymorphplastic.co.uk/][Polymorph]] (known as Friendly Plastic
