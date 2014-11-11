@@ -1,4 +1,4 @@
-#+TITLE: *DecaKeyer: Hand-held Chorded Keyboard with 10 Microswitches*
+#+TITLE: *DecaKeyer: Hand-held Chorded Keyboard with 10 Micro-switches*
 #+AUTHOR: nil
 #+EMAIL: no-reply
 #+OPTIONS: author:nil email:nil ^:{}
@@ -7,34 +7,29 @@
 
 * Aim
   The aim of this project is to construct a hand-held chorded keyboard with
-  chords inspired by the Twiddler-2.1 but using two-switches per finger rather
-  than three with the third being emulated by pressing the two simultaneously.
+  chords inspired by the
+  [[http://twiddler.tekgear.com/twiddler2.html][Twiddler-2.1]] but using
+  two-switches per finger rather than three with the third being emulated by
+  pressing the two simultaneously.  Low force Panasonic micro-switches are used
+  which are MUCH easier and more satisfying to press than the stiff tactile
+  switches used in the Twiddler-2.1, even when pressing two simultaneously.
+  However some of the chords are too difficult to press, in particular chords
+  which involve one finger pressing a front-switch and another pressing a
+  back-switch.  When the difficult chords are eliminated there are too few to be
+  able to create an equivalent of a full keyboard and another mode/layer is
+  really needed.  Overall this has been an interesting project but the resulting
+  keyboard is not as easy to use as the Twiddler-2.1, even with its harsh
+  switches, and maybe a better approach would be to improve the Twiddler concept
+  with lower-force, longer travel switches with better tactile feedback and
+  flatter keycaps so that they are not so hard on the finger tips.
 * Images
   Here is the current version of the DecaKeyer fabricated in
   [[http://www.polymorphplastic.co.uk/][Polymorph]] (known as Friendly Plastic
   in the US)
-  [[https://github.com/Henry/DecaKeyer/raw/master/Images/DecaKeyer.jpg]]
-  and as it looks when worn
   [[https://github.com/Henry/DecaKeyer/raw/master/Images/DecaKeyerHand.jpg]]
-* Teensy 2 Software
-  The [[https://www.pjrc.com/teensy/][Teensy-2.0]] micro-controller is used in
-  this project.  The installation notes are really for my own reference but they
-  may be useful to others.  I am developing software under OpenSuSE but all
-  these tools are available for other GNU/Linux distributions.
-*** Install AVR tools on OpenSuSE
-    Open /firefox/ and follow instructions on
-    + http://software.opensuse.org/package/cross-avr-gcc
-    + Use the 1-click install of /CrossToolchain:avr/
-    Or add the repository and use =zypper=
-    + sudo zypper addrepo http://download.opensuse.org/repositories/CrossToolchain:/avr/openSUSE_13.1/
-    + =zypper in cross-avr-gcc avr-libc cross-avr-binutils=
-*** CLI Loader (used instead of Teensyduino)
-    Download the latest CLI app for teensy-2
-    + =wget https://www.pjrc.com/teensy/teensy_loader_cli.2.1.zip=
-    + =unzip teensy_loader_cli.2.1.zip=
-    + =cd teensy_loader_cli=
-    + =make=
-    + Install somewhere in your =PATH= /eg/: =cp teensy_loader_cli ~/bin/linux=
+  [[https://github.com/Henry/DecaKeyer/raw/master/Images/FingerSwitches.jpg]]
+  [[https://github.com/Henry/DecaKeyer/raw/master/Images/TrackBall.jpg]]
+  [[https://github.com/Henry/DecaKeyer/raw/master/Images/DecaKeyerInside.jpg]]
 * Teensy Pins
 *** Chorded keys
     | Finger        | Wire colour | Port pin |
@@ -66,3 +61,37 @@
     | Button    | purple      | PB4      |
     | Gnd       | brown       | Gnd      |
     | Vcc       | red         | Vcc      |
+* Teensy 2 Software
+  The [[https://www.pjrc.com/teensy/][Teensy-2.0]] micro-controller is used in
+  this project.  The installation notes are really for my own reference but they
+  may be useful to others.  I am developing software under OpenSuSE but all
+  these tools are available for other GNU/Linux distributions.
+*** Install AVR tools on OpenSuSE
+    Open /firefox/ and follow instructions on
+    + http://software.opensuse.org/package/cross-avr-gcc
+    + Use the 1-click install of /CrossToolchain:avr/
+    Or add the repository and use =zypper=
+    + sudo zypper addrepo http://download.opensuse.org/repositories/CrossToolchain:/avr/openSUSE_13.1/
+    + =zypper in cross-avr-gcc avr-libc cross-avr-binutils=
+*** CLI Loader (used instead of Teensyduino)
+    Download the latest CLI app for teensy-2
+    + =wget https://www.pjrc.com/teensy/teensy_loader_cli.2.1.zip=
+    + =unzip teensy_loader_cli.2.1.zip=
+    + =cd teensy_loader_cli=
+    + =make=
+    + Install somewhere in your =PATH= /eg/: =cp teensy_loader_cli ~/bin/linux=
+* Compile and Upload
+  The complete source code for the firmware is provided and may be compiled,
+  linked and loaded using =make=:
+  + Compile only: =make PROGRAM=deca_keyer=
+  + Compile and upload: =make PROGRAM=deca_keyer load=
+  The program defaults to =deca_keyer= so
+  + Compile only: =make=
+  + Compile and upload: =make load=
+  is sufficient.
+  + Clean out built project files: =make clean=
+  The chords definitions are provided in the form of a header file which is
+  converted from a more readable form by the =convert= utility provided.
+  To convert the chord definition .txt files to the corresponding .h files
+  simply:
+  + =make maps=

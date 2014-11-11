@@ -1,9 +1,33 @@
-# Hey Emacs, this is a -*- makefile -*-
-#----------------------------------------------------------------------------
-# WinAVR Makefile Template written by Eric B. Weddington, Jörg Wunsch, et al.
-#
-# Released to the Public Domain
-#
+###-----------------------------------------------------------------------------
+##  This file is part of
+### ---     DecaKeyer: Hand-held Chorded Keyboard
+###-----------------------------------------------------------------------------
+### Title: Makefile
+###  Description:
+###    Teensy project Makefile based on
+###    WinAVR Makefile Template written by Eric B. Weddington, Jörg Wunsch, et al.
+###
+###    make all = Make software (default).
+###
+###    make clean = Clean out built project files.
+###
+###    make load = Load the hex file to the device.
+###
+###    make debug = Start either simulavr or avarice as specified for debugging,
+###                 with avr-gdb or avr-insight as the front end for debugging.
+###
+###    make filename.s = Just compile filename.c into the assembler code only.
+###
+###    make filename.i = Create a preprocessed source file for use in submitting
+###                      bug reports to the GCC project.
+###
+###    make maps
+###        Convert the chord definition .txt files to the corresponding .h files
+###
+### To rebuild project do "make clean" then "make all".
+###-----------------------------------------------------------------------------
+
+###-----------------------------------------------------------------------------
 # Additional material for this makefile was written by:
 # Peter Fleury
 # Tim Henigan
@@ -13,36 +37,12 @@
 # Sander Pool
 # Frederik Rouleau
 # Carlos Lamas
-#
-#----------------------------------------------------------------------------
-# On command line:
-#
-# make all = Make software (default).
-#
-# make clean = Clean out built project files.
-#
-# make load = Load the hex file to the device.
-#
-# make debug = Start either simulavr or avarice as specified for debugging,
-#              with avr-gdb or avr-insight as the front end for debugging.
-#
-# make filename.s = Just compile filename.c into the assembler code only.
-#
-# make filename.i = Create a preprocessed source file for use in submitting
-#                   bug reports to the GCC project.
-#
-# make maps
-#     Convert the chord definition .txt files to the corresponding .h files
-#
-# To rebuild project do "make clean" then "make all".
-#----------------------------------------------------------------------------
-
-# Target file name (without extension).
-TARGET = deca_keyer
+###-----------------------------------------------------------------------------
+PROGRAM = deca_keyer
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC =	$(TARGET).c \
-	$(TARGET)_interface.c \
+SRC =	$(PROGRAM).c \
+	$(PROGRAM)_interface.c \
 	usb_interface.c \
 	usb_print.c
 
@@ -247,7 +247,7 @@ EXTMEMOPTS =
 #  -Wl,...:     tell GCC to pass this to linker.
 #    -Map:      create map file
 #    --cref:    add cross reference to  map file
-LDFLAGS = -Wl,-Map=$(TARGET).map,--cref
+LDFLAGS = -Wl,-Map=$(PROGRAM).map,--cref
 LDFLAGS += -Wl,--relax
 LDFLAGS += -Wl,--gc-sections
 LDFLAGS += $(EXTMEMOPTS)
@@ -258,7 +258,7 @@ LDFLAGS += $(PRINTF_LIB) $(SCANF_LIB) $(MATH_LIB)
 #---------------- Programming Options ----------------
 
 PROGRAMMER = teensy_loader_cli
-WRITE_FLASH = -w $(TARGET).hex
+WRITE_FLASH = -w $(PROGRAM).hex
 PROGRAMMER_FLAGS = -mmcu=$(MCU)
 
 
@@ -334,9 +334,9 @@ all: begin sizebefore maps build sizeafter end
 build: elf hex
 
 
-elf: $(TARGET).elf
-hex: $(TARGET).hex
-LIBNAME=lib$(TARGET).a
+elf: $(PROGRAM).elf
+hex: $(PROGRAM).hex
+LIBNAME=lib$(PROGRAM).a
 lib: $(LIBNAME)
 
 
@@ -353,19 +353,19 @@ end:
 
 
 # Display size of file.
-HEXSIZE = $(SIZE) --target=$(FORMAT) $(TARGET).hex
-ELFSIZE = $(SIZE) $(TARGET).elf
+HEXSIZE = $(SIZE) --target=$(FORMAT) $(PROGRAM).hex
+ELFSIZE = $(SIZE) $(PROGRAM).elf
 
 sizebefore:
-	@if test -f $(TARGET).elf; then echo; echo $(MSG_SIZE_BEFORE); $(ELFSIZE); \
+	@if test -f $(PROGRAM).elf; then echo; echo $(MSG_SIZE_BEFORE); $(ELFSIZE); \
 	2>/dev/null; echo; fi
 
 sizeafter:
-	@if test -f $(TARGET).elf; then echo; echo $(MSG_SIZE_AFTER); $(ELFSIZE); \
+	@if test -f $(PROGRAM).elf; then echo; echo $(MSG_SIZE_AFTER); $(ELFSIZE); \
 	2>/dev/null; echo; fi
 
 
-load: $(TARGET).hex
+load: $(PROGRAM).hex
 	$(PROGRAMMER) $(PROGRAMMER_FLAGS) $(WRITE_FLASH)
 
 # Generate avr-gdb config/init file which does the following:
@@ -376,7 +376,7 @@ gdb-config:
 	@echo define reset >> $(GDBINIT_FILE)
 	@echo SIGNAL SIGHUP >> $(GDBINIT_FILE)
 	@echo end >> $(GDBINIT_FILE)
-	@echo file $(TARGET).elf >> $(GDBINIT_FILE)
+	@echo file $(PROGRAM).elf >> $(GDBINIT_FILE)
 	@echo target remote $(DEBUG_HOST):$(DEBUG_PORT)  >> $(GDBINIT_FILE)
 ifeq ($(DEBUG_BACKEND),simulavr)
 	@echo load  >> $(GDBINIT_FILE)
@@ -399,7 +399,7 @@ maps: chord_map.h mouse_chord_map.h
 
 
 # Create library from object files.
-.SECONDARY : $(TARGET).a
+.SECONDARY : $(PROGRAM).a
 .PRECIOUS : $(OBJ)
 %.a: $(OBJ)
 	@echo
@@ -408,7 +408,7 @@ maps: chord_map.h mouse_chord_map.h
 
 
 # Link: create ELF output file from object files.
-.SECONDARY : $(TARGET).elf
+.SECONDARY : $(PROGRAM).elf
 .PRECIOUS : $(OBJ)
 %.elf: $(OBJ)
 	@echo
@@ -458,10 +458,10 @@ clean: begin clean_list end
 clean_list :
 	@echo
 	@echo $(MSG_CLEANING)
-	$(REMOVE) $(TARGET).hex
-	$(REMOVE) $(TARGET).cof
-	$(REMOVE) $(TARGET).elf
-	$(REMOVE) $(TARGET).map
+	$(REMOVE) $(PROGRAM).hex
+	$(REMOVE) $(PROGRAM).cof
+	$(REMOVE) $(PROGRAM).elf
+	$(REMOVE) $(PROGRAM).map
 	$(REMOVE) $(SRC:%.c=$(OBJDIR)/%.o)
 	$(REMOVE) $(SRC:%.c=$(OBJDIR)/%.lst)
 	$(REMOVE) $(SRC:.c=.s)
