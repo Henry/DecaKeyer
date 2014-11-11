@@ -95,3 +95,72 @@
   To convert the chord definition .txt files to the corresponding .h files
   simply:
   + =make maps=
+* Notes
+*** Study of existing commercial offerings
+    + [[http://www.infogrip.com/bat-keyboard.html][BAT]] Keyboards
+      - Desk only (right hand and/or left hand)
+      - Good ergonomics
+      - 7-keys
+      - Thumb keys too far apart
+      - Cherry Red switches -
+        + linear
+        + poor feedback
+        + quite hard to press several at once
+      - Having so few keys means that many modes are needed
+        + 3 key chords for { etc.
+    + [[http://twiddler.tekgear.com/twiddler2.html][Twiddler-2.1]]
+      - Hand-held
+      - poor ergonomics
+        + too close to palm
+        + key caps too narrow
+        + keys slightly too hard to press
+        + joystick awful
+      - Three rows of keys - lots of combinations - no modes
+    + [[http://en.wikipedia.org/wiki/Microwriter][Microwriter]]
+      - Good ergonomics
+        + Nice tactile feel
+        + Good choice of Cherry micro switches
+        + Two keys on thumb can be pressed separately or together
+      - Right-hand only
+      - Desk only
+      - Having so few keys means that many modes are needed
+      - Not all characters are accessible
+
+    Conclusion is that a hand-held device with rows of micro switches to avoid
+    modes and provide a good tactile experience is optimal /e.g./
+    [[http://chordite.com/][Chordite]] with two rows of switches the
+    finger-pairs which can be pressed separately or together.
+*** Choice of switch arrangement
+    + 2 rows of finger switches which can also be pressed simultaneously See
+      [[http://chordite.com/][Chordite]].
+    + 2 switches on thumb for Ctrl, Shift and Alt.
+    + Optional trackball on thumb
+      - with switch to enable trackball mode
+      - use finger switches for mouse buttons
+      - e.g. SparkFun Blackberry trackball breakout
+*** Choice of micro-switch
+    + Cherry E63
+      - Used in Microwriter
+      - A bit spongy
+      - Travel is too long
+      - Force is too little
+      - Not readily available
+    + Omron SS
+      - Force is too little
+      - Tactile feedback is too weak
+    + Panasonic AV
+      - Good force (options for light and heavier)
+      - Good tactile feedback
+      - Good travel
+      - Clicking is rather high pitched
+      - Lever is rather loose laterally
+    + Panasonic AVT
+      - As for AV but with better lever hinge
+
+    Best choices (simulated roller lever)
+    + Panasonic AVT3244613
+      - force 0.34N
+      - So far appears best choice
+      - Maybe the force is a bit too large when pressing 2 at the same time
+    + Panasonic AVT3242613 force 0.16N
+      If AVT3244613 proves to hard to press use the AVT3242613
